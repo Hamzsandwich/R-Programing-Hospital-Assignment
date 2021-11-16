@@ -13,20 +13,15 @@ best <- function(state, admit_reas) {
        ## heart attach
        ## heart failure
        ## pneumonia
-    names(cleanhd)[3] <- "heart_attack"
-    names(cleanhd)[4] <- "heart_failure"
+    names(cleanhd)[3] <- "heart attack"
+    names(cleanhd)[4] <- "heart failure"
     names(cleanhd)[5] <- "pneumonia"
     
-   
-    
-    
     # set these columns as numerics
-    cleanhd$heart_attack <- as.numeric(as.character(cleanhd$heart_attack))
-    cleanhd$heart_failure <- as.numeric(as.character(cleanhd$heart_failure))
-    cleanhd$pneumonia <- as.numeric(cleanhd$pneumonia)
-    
-    
-    
+    cleanhd[,3] <- as.numeric(as.character(cleanhd[,3]))
+    cleanhd[,4] <- as.numeric(as.character(cleanhd[,4]))
+    cleanhd[,5] <- as.numeric(cleanhd[,5])
+   
     ## Create a df for the called state
     dataforstate <- subset(cleanhd, State == state)
     
@@ -35,8 +30,5 @@ best <- function(state, admit_reas) {
     
     ## call best hospital name (lowest 30 mort) for that 
     
-    head(sorted_data)
-    ##sorted_data[1,1]
+    sorted_data[1,1]
 }
-
-#Hospital.30.Day.Death..Mortality..Rates.from.
